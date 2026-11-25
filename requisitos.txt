@@ -1,0 +1,74 @@
+LIBRERÍA PÁGINAS ANDINAS — REQUISITOS
+
+Integrantes:
+- Joaquin Lupera
+- Alejandro Flores
+
+1. Requisitos funcionales
+
+RF-01. Registrar libros impresos, libros digitales y artículos de papelería.
+Origen: Sección 2.1: “Vendo tres cosas: libros de papel, libros digitales y papelería” y “Quiero poder registrar productos nuevos”.
+
+RF-02. Mostrar en una tabla la lista de productos registrados.
+Origen: Sección 2.1: “ver la lista de todo lo que tengo”.
+
+RF-03. Buscar productos por una parte de su nombre, sin distinguir mayúsculas de minúsculas.
+Origen: Sección 2.3: “quiero el de la soledad”; “Nadie se acuerda del nombre completo y cada uno lo escribe como quiere, con mayúsculas o sin mayúsculas”.
+
+RF-04. Registrar una venta para un cliente precargado, con varios productos y cantidades.
+Origen: Sección 2.5: “Una venta es para un cliente y puede tener varios productos y varias unidades de cada uno”.
+
+RF-05. Mostrar el total a pagar y el desglose de subtotal, descuentos e IVA.
+Origen: Sección 2.5: “Al final quiero ver cuánto paga. Mi contador, además, quiere ver de dónde sale cada centavo”.
+
+2. Reglas de negocio
+
+RN-01. Cada producto debe tener código, nombre y precio.
+Origen: Sección 2.1: “De todo necesito el código, el nombre y el precio”.
+
+RN-02. Los códigos de producto deben ser únicos.
+Origen: Sección 2.1: “tuve dos libros distintos con el mismo código y fue un desastre: cobré uno por otro durante un mes”.
+
+RN-03. Un libro impreso debe incluir autor y existencias.
+Origen: Sección 2.1: “De los libros de papel me interesa el autor y cuántos tengo en la bodega”.
+
+RN-04. Un libro digital debe incluir autor y ofrecer los formatos PDF y EPUB; no maneja existencias limitadas.
+Origen: Sección 2.1: “De los digitales, el autor y el formato, que puede ser PDF o EPUB. Esos nunca se me acaban, ¿no? Es el mismo archivo para cada cliente”.
+
+RN-05. Un artículo de papelería debe incluir marca y existencias.
+Origen: Sección 2.1: “De la papelería, la marca y cuántos me quedan”.
+
+RN-06. No se debe completar la venta de libros impresos o artículos de papelería si no hay existencias suficientes. Al venderlos, se descuentan las unidades vendidas.
+Origen: Sección 2.2: “Lo que más me duele es vender algo que no tengo”.
+
+RN-07. Un cliente socio recibe 10 % de descuento en libros impresos y digitales; no se aplica a papelería.
+Origen: Sección 2.4: “A ellos les hago el 10 % de descuento” y “En los cuadernos y esferos no”.
+
+RN-08. Los libros impresos y digitales no pagan IVA; la papelería paga 15 % de IVA.
+Origen: Sección 2.5: “los libros no pagan IVA, ni los de papel ni los digitales, pero la papelería sí, el 15 %”.
+
+3. Registro de prompts
+
+Nota: La conversación no identifica cuál integrante escribió cada mensaje. Por ello, el usuario de cada prompt figura como “Equipo; integrante que lo escribió no especificado”, sin atribuirlo arbitrariamente.
+
+Prompt 1
+Usado por: Equipo; integrante que lo escribió no especificado.
+“Actua como un estudiante en programacion II, es decir orientada a objetos, necesito que generes una solucion al problema con la idea del negocio, limite a utilzar cosas fueras del texto proporcionado y genera el codigo completo”
+
+Prompt 2
+Usado por: Equipo; integrante que lo escribió no especificado.
+“Actúa como un desarrollador experto en Java y diseño de interfaces accesibles (UX/UI). Genera el código completo y funcional en Java Swing para una interfaz gráfica de menú principal dirigida a adultos mayores, inspirada en el sistema Eldy. [...] recuerda que NO SE NECESITA LAS 6 OPCIONES, SOLO LAS QUE YA TIENES, ESTE ES SOLO UN EJEMPLO DEL MENU, PERO QUIERO QUE TENGA LA MISMA ESENCIA”
+
+Prompt 3
+Usado por: Equipo; integrante que lo escribió no especificado.
+“Despues de analizar el main, hay cosas de la interfaz grafica que no me gustann, recuerda que este programa lo va a uilizar una persona mayor de edad, es decir tiene que ser extremandamente sencillo de utilizar, por ejemplo en la ventana de cantidad, el usuario no deberia de poner la cantidad de productos que el quiere, si no los que tiene, por ejemplo hay 5 libros del priincpito, pero la persona tiene que regresar a la otra pesaña para asegurarse. Ahora en el momento de registrar un producto, has que el programa le de automaticmane los codigos”
+
+Prompt 4
+Usado por: Equipo; integrante que lo escribió no especificado.
+“En los producto digitales en ventas. LD 1 y LD2 deberia de selecionar si es pdf o EPUB, no hay uno o el otro, son los dos”
+
+4. Uso de IA: observación y corrección
+
+La primera propuesta de interfaz no resultó suficientemente sencilla para una persona mayor: fue necesario iterar el diseño hasta separar claramente las opciones de Productos y Ventas, aumentar el tamaño de los controles y mostrar las existencias disponibles junto al selector del producto. También se probó varias veces el flujo de venta y se corrigieron problemas de lógica detectados durante esas pruebas.
+
+La primera versión del modelo trataba PDF y EPUB como si cada libro digital tuviera un solo formato. Se corrigió para que cada libro digital ofrezca ambos formatos y se pueda elegir PDF o EPUB al agregarlo a una venta. Las pruebas confirmaron que los dos formatos se agregan como detalles distintos.
